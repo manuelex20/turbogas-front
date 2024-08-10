@@ -594,7 +594,17 @@ a:focus,
   display: block;
 }
 
-.logo-sm {}
+.logofix img {
+  transition: ease-in 0.5s;
+}
+
+
+
+@media (max-width: 426px) {
+  .logofix {
+    width: 200px !important;
+  }
+}
 
 @media (max-width: 768px) {
   .content {
