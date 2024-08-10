@@ -397,6 +397,12 @@ ol.type li a:hover {
 
 .portfolio-item {
   margin-bottom: 30px;
+  width: 350px;
+  max-width: 100%;
+}
+
+.portfolio-item div a img {
+  width: 100%;
 }
 
 .portfolio-item .hover-bg {

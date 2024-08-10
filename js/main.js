@@ -13,9 +13,7 @@ function main() {
         var target = $(this.hash);
         target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
         if (target.length) {
-          $('html,body').animate({
-            scrollTop: target.offset().top - 40
-          }, 900);
+          $('html,body').animate({ scrollTop: target.offset().top - 40 }, 900);
           return false;
         }
       }
@@ -33,56 +31,9 @@ function main() {
       }
     });
 
+    var scrollSpy = new bootstrap.ScrollSpy(document.body, { target: '.navbar-default', offset: 80 });
 
-    var scrollSpy = new bootstrap.ScrollSpy(document.body, {
-      target: '.navbar-default',
-      offset: 80
-    })
-
-    /*====================================
-    Portfolio Isotope Filter
-    ======================================*/
-    $(document).ready(function () {
-      var $container = $('.portfolio-items');
-      $container.isotope({
-        filter: '*',
-        animationOptions: {
-          duration: 750,
-          easing: 'linear',
-          queue: false
-        }
-      });
-      $('.cat a').click(function () {
-        $('.cat .active').removeClass('active');
-        $(this).addClass('active');
-        var selector = $(this).attr('data-filter');
-        $container.isotope({
-          filter: selector,
-          animationOptions: {
-            duration: 750,
-            easing: 'linear',
-            queue: false
-          }
-        });
-        return false;
-      });
-
-    });
-
-    /*====================================
-    Pretty Photo
-    ======================================*/
-    $("a[rel^='prettyPhoto']").prettyPhoto({
-      social_tools: false
-    });
-
-
-    window.onscroll = function () {
-      adjustNavbarOnScroll();
-    };
-    function adjustNavbarOnScroll() {
-      var logo = document.querySelector(".navbar-brand img");
-      var text = document.querySelector(".navbar-brand span");
+    window.onscroll = () => {
       if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
         //logo-lg
         $(".navbar-brand img").addClass("p-2");
@@ -95,7 +46,6 @@ function main() {
 
 
   }());
-
-
 }
+
 main();
